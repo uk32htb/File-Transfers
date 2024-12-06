@@ -1,0 +1,9 @@
+Option 1 
+Step 1) Checking MD5 of a file :- On kali 
+        md5sum id_rsa
+Step 2) cat id_rsa |base64 -w 0;echo :- Encoding the file :- On kali 
+Step 3) PS C:\htb> [IO.File]::WriteAllBytes("C:\Users\Public\id_rsa", [Convert]::FromBase64String("base 64 from step 2")) :- On windows 
+Step 4) Get-FileHash C:\Users\Public\id_rsa -Algorithm md5 :- Confirming the file is transfered 
+
+
+
