@@ -52,4 +52,10 @@ Option 3) If we don't have PYTHON, we can run Ruby server to transfer the file
     ruby -run -ehttpd . -p80
     wget http://<IP:Port/File name> -o <Output file path with name>
 
+Option 4) We can use Python2 to downlad a file.
+    python2.7 -c 'import urllib;urllib.urlretrieve ("https://<Server IP address:Port>/<File Name>", "<Output File name>")'
+
+Option 5) We can use Python3 to dowload a file.
+    python3 -c 'import urllib.request;urllib.request.urlretrieve("https://<Server IP address:Port>/<File Name>", "<Output File name>")'
+
  
