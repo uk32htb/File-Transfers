@@ -1,0 +1,7 @@
+This is from kali to linux and vice versa, since both are LINUX devices :) 
+
+Option 1) We can use base64 to transfer the file, use this for smaller files    
+    Step 1) # cat <File> |base64 -w 0;echo :- Machine where the file is present
+          We get the base 64 hash, copy it 
+    Step 2) Now can save it in the target machine
+          # echo -n '<base 64 echo>' | base64 -d > <Output file name>
